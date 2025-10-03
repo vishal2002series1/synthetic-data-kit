@@ -1,0 +1,17 @@
+# Virtual environments
+venv/
+.env/
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# MacOS
+.DS_Store
+
+# Data & results (if not needed in repo)
+data/
+results.txt
+
+# Logs
+*.log
