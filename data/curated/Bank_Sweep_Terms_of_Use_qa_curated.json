@@ -1,0 +1,57 @@
+[
+  {
+    "question": "What happens to shares of Vanguard's Federal Money Market Fund when you enroll in Vanguard Cash Deposit?",
+    "answer": "Once you complete your enrollment into Vanguard Cash Deposit, VBS will sell your shares of Vanguard's Federal Money Market Fund in your account and transfer the sale proceeds, net debits, to the Bank Sweep program, which will become your default investment option for Eligible Balances.",
+    "evaluation": {
+      "accuracy": 3,
+      "relevance": 2,
+      "clarity": 2,
+      "usefulness": 3,
+      "combined_score": 10
+    }
+  },
+  {
+    "question": "What is the current Standard Maximum Deposit Insurance Amount (SMDIA) for federal deposit insurance mentioned in the text?",
+    "answer": "The current Standard Maximum Deposit Insurance Amount (SMDIA) for federal deposit insurance is $250,000.",
+    "evaluation": {
+      "accuracy": 3,
+      "relevance": 2,
+      "clarity": 2,
+      "usefulness": 2,
+      "combined_score": 9
+    }
+  },
+  {
+    "question": "What is the Program Bank Deposit Limit that VBS will deposit into each Program Bank?",
+    "answer": "$247,500 in order to permit the greatest amount of Your Eligible Balances to be eligible for FDIC insurance coverage.",
+    "evaluation": {
+      "accuracy": 3,
+      "relevance": 2,
+      "clarity": 2,
+      "usefulness": 3,
+      "combined_score": 10
+    }
+  },
+  {
+    "question": "When is yield credited and paid by the Program Bank on Sweep Deposits?",
+    "answer": "The yield will be credited and paid by the Program Bank: (a) at the end of each month, (b) on the date Your Account closes, or (c) when You withdraw all of Your Sweep Deposits.",
+    "evaluation": {
+      "accuracy": 3,
+      "relevance": 2,
+      "clarity": 2,
+      "usefulness": 3,
+      "combined_score": 10
+    }
+  },
+  {
+    "question": "What happens to clients' yields when they enroll in the Bank Sweep program?",
+    "answer": "Clients that enroll in the Bank Sweep receive a lower yield on deposits under the Bank Sweep than if Vanguard had not earned this fee because Program Banks reduce the amount of interest they are willing to pay depositors by the amount of the fee they pay to VBS.",
+    "evaluation": {
+      "accuracy": 3,
+      "relevance": 2,
+      "clarity": 2,
+      "usefulness": 3,
+      "combined_score": 10
+    }
+  }
+]

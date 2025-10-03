@@ -1,0 +1,83 @@
+llm:
+  provider: "bedrock"
+
+bedrock:
+  model: "global.anthropic.claude-sonnet-4-20250514-v1:0"
+  region: "us-east-1"
+  sleep_time: 0.5
+
+generation:
+  temperature: 0.7
+  chunk_size: 4000
+  chunk_overlap: 200
+  num_pairs: 20
+  max_context_length: 8000
+
+curate:
+  threshold: 7.0
+  batch_size: 8
+
+prompts:
+  summary: |
+    Summarize this document in 3-5 sentences, focusing on the main topic and key concepts.
+
+  qa_generation: |
+    Create {num_pairs} question-answer pairs from this text for LLM training.
+    Rules:
+    1. Questions must be about important facts in the text
+    2. Answers must be directly supported by the text
+    3. Return JSON format only:
+    [{{"question": "Question 1?", "answer": "Answer 1."}}, {{"question": "Question 2?", "answer": "Answer 2."}}]
+    Text:
+    {text}
+
+  cot_generation: |
+    Create {num_pairs} question-answer pairs with step-by-step reasoning from this text.
+    Rules:
+    1. Questions must be about important facts in the text
+    2. Include detailed reasoning steps before the final answer
+    3. Return JSON format only:
+    [{{"question": "Question 1?", "reasoning": "Step 1: ... Step 2: ...", "answer": "Answer 1."}}]
+    Text:
+    {text}
+
+  qa_rating: |
+    You are a strict JSON evaluator. Rate each question-answer pair using these metrics:
+    - accuracy (0-3): factual correctness
+    - relevance (0-2): relevance to source content
+    - clarity (0-2): clear and understandable language
+    - usefulness (0-3): value for training language models
+    
+    Return ONLY valid JSON with this exact structure for each pair:
+    {{
+      "question": "exact question text",
+      "answer": "exact answer text",
+      "accuracy": 3,
+      "relevance": 2,
+      "clarity": 2,
+      "usefulness": 3,
+      "combined_score": 10
+    }}
+    
+    For multiple pairs, return a JSON array.
+    
+    CRITICAL RULES:
+    - Output MUST be valid JSON only (no markdown, no explanations)
+    - Use integers for all scores, not strings
+    - Keep question and answer text exactly as provided
+    - Ignore any "reasoning" field if present
+    - combined_score = accuracy + relevance + clarity + usefulness
+    
+    QA pairs to rate:
+    {pairs}
+
+  tool_use_generation: |
+    You are an AI assistant with access to search tools. Answer the following question by using the available tools when needed.
+    
+    Available tools:
+    - arxiv_search: Search academic papers on arXiv
+    - duckduckgo_search: Search the web for current information
+    
+    Question: {question}
+    
+    Think step by step and use tools when you need external information to provide a complete answer.
